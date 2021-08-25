@@ -1,32 +1,35 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Sensor;
 
 public class RosImageSub : MonoBehaviour
 {
-    public MeshRenderer meshRenderer;
+    public RawImage rawTexture;
     public string topicName;
     private Texture2D texture2D;
     private byte[] imageData;
+    private bool isMessageReceived;
 
     void Start()
     {
-        ROSConnection.instance.Subscribe<CompressedImageMsg>(topicName, UpdateImage);
         texture2D = new Texture2D(1, 1);
-        meshRenderer.material = new Material(Shader.Find("Standard"));
+        ROSConnection.instance.Subscribe<CompressedImageMsg>(topicName, UpdateImage);
     }
 
     void UpdateImage(CompressedImageMsg image)
     {
         imageData = image.data;
-        texture2D.LoadImage(imageData);
-        ProcessMessage();
+        isMessageReceived = true;
+        if (isMessageReceived)
+            ProcessMessage();
     }
 
     private void ProcessMessage()
     {
         texture2D.LoadImage(imageData);
         texture2D.Apply();
-        meshRenderer.material.SetTexture("_MainTex", texture2D);
+        rawTexture.texture = texture2D;
+        isMessageReceived = false;
     }
 }
