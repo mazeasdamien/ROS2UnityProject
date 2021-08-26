@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetStateValidityResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetStateValidity";
+        public const string k_RosMessageName = "moveit_msgs-master/GetStateValidity";
         public override string RosMessageName => k_RosMessageName;
 
         public bool valid;

@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ExecuteTrajectoryFeedback : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ExecuteTrajectory";
+        public const string k_RosMessageName = "moveit_msgs-master/ExecuteTrajectory";
         public override string RosMessageName => k_RosMessageName;
 
         //  The internal state that the move group action currently is in

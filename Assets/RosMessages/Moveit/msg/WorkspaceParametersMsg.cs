@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -18,7 +19,7 @@ namespace RosMessageTypes.Moveit
         //  This is useful only when planning for mobile parts of 
         //  the robot as well.
         //  Define the frame of reference for the box corners
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  The minumum corner of the box, with respect to the robot starting pose
         public Geometry.Vector3Msg min_corner;
         //  The maximum corner of the box, with respect to the robot starting pose
@@ -26,12 +27,12 @@ namespace RosMessageTypes.Moveit
 
         public WorkspaceParametersMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.min_corner = new Geometry.Vector3Msg();
             this.max_corner = new Geometry.Vector3Msg();
         }
 
-        public WorkspaceParametersMsg(Std.HeaderMsg header, Geometry.Vector3Msg min_corner, Geometry.Vector3Msg max_corner)
+        public WorkspaceParametersMsg(HeaderMsg header, Geometry.Vector3Msg min_corner, Geometry.Vector3Msg max_corner)
         {
             this.header = header;
             this.min_corner = min_corner;
@@ -42,7 +43,7 @@ namespace RosMessageTypes.Moveit
 
         private WorkspaceParametersMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             this.min_corner = Geometry.Vector3Msg.Deserialize(deserializer);
             this.max_corner = Geometry.Vector3Msg.Deserialize(deserializer);
         }

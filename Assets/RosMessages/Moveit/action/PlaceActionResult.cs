@@ -7,7 +7,7 @@ namespace RosMessageTypes.Moveit
 {
     public class PlaceActionResult : ActionResult<PlaceResult>
     {
-        public const string k_RosMessageName = "moveit_msgs/PlaceActionResult";
+        public const string k_RosMessageName = "moveit_msgs-master/PlaceActionResult";
         public override string RosMessageName => k_RosMessageName;
 
 

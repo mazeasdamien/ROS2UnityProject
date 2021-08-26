@@ -7,7 +7,7 @@ namespace RosMessageTypes.Moveit
 {
     public class MoveGroupActionFeedback : ActionFeedback<MoveGroupFeedback>
     {
-        public const string k_RosMessageName = "moveit_msgs/MoveGroupActionFeedback";
+        public const string k_RosMessageName = "moveit_msgs-master/MoveGroupActionFeedback";
         public override string RosMessageName => k_RosMessageName;
 
 

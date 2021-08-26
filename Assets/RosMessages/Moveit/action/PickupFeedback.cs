@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class PickupFeedback : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/Pickup";
+        public const string k_RosMessageName = "moveit_msgs-master/Pickup";
         public override string RosMessageName => k_RosMessageName;
 
         //  The internal state that the pickup action currently is in

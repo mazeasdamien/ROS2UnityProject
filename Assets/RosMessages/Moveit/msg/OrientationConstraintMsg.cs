@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -14,7 +15,7 @@ namespace RosMessageTypes.Moveit
         public override string RosMessageName => k_RosMessageName;
 
         //  This message contains the definition of an orientation constraint.
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  The desired orientation of the robot link specified as a quaternion
         public Geometry.QuaternionMsg orientation;
         //  The robot link this constraint refers to
@@ -37,7 +38,7 @@ namespace RosMessageTypes.Moveit
 
         public OrientationConstraintMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.orientation = new Geometry.QuaternionMsg();
             this.link_name = "";
             this.absolute_x_axis_tolerance = 0.0;
@@ -47,7 +48,7 @@ namespace RosMessageTypes.Moveit
             this.weight = 0.0;
         }
 
-        public OrientationConstraintMsg(Std.HeaderMsg header, Geometry.QuaternionMsg orientation, string link_name, double absolute_x_axis_tolerance, double absolute_y_axis_tolerance, double absolute_z_axis_tolerance, byte parameterization, double weight)
+        public OrientationConstraintMsg(HeaderMsg header, Geometry.QuaternionMsg orientation, string link_name, double absolute_x_axis_tolerance, double absolute_y_axis_tolerance, double absolute_z_axis_tolerance, byte parameterization, double weight)
         {
             this.header = header;
             this.orientation = orientation;
@@ -63,7 +64,7 @@ namespace RosMessageTypes.Moveit
 
         private OrientationConstraintMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             this.orientation = Geometry.QuaternionMsg.Deserialize(deserializer);
             deserializer.Read(out this.link_name);
             deserializer.Read(out this.absolute_x_axis_tolerance);

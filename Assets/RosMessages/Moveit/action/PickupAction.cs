@@ -6,7 +6,7 @@ namespace RosMessageTypes.Moveit
 {
     public class PickupAction : Action<PickupActionGoal, PickupActionResult, PickupActionFeedback, PickupGoal, PickupResult, PickupFeedback>
     {
-        public const string k_RosMessageName = "moveit_msgs/PickupAction";
+        public const string k_RosMessageName = "moveit_msgs-master/PickupAction";
         public override string RosMessageName => k_RosMessageName;
 
 

@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ExecuteTrajectoryGoal : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ExecuteTrajectory";
+        public const string k_RosMessageName = "moveit_msgs-master/ExecuteTrajectory";
         public override string RosMessageName => k_RosMessageName;
 
         //  The trajectory to execute

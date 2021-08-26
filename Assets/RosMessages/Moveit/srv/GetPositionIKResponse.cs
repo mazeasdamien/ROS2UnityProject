@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetPositionIKResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPositionIK";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPositionIK";
         public override string RosMessageName => k_RosMessageName;
 
         //  The returned solution 

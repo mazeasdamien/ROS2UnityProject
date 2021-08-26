@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GraspPlanningRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GraspPlanning";
+        public const string k_RosMessageName = "moveit_msgs-master/GraspPlanning";
         public override string RosMessageName => k_RosMessageName;
 
         //  Requests that grasp planning be performed for the target object

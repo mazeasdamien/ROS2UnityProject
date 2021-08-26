@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetPositionIKRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPositionIK";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPositionIK";
         public override string RosMessageName => k_RosMessageName;
 
         //  A service call to carry out an inverse kinematics computation

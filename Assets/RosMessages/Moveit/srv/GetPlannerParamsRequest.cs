@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetPlannerParamsRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPlannerParams";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPlannerParams";
         public override string RosMessageName => k_RosMessageName;
 
         //  Name of the planning pipeline, uses default if empty

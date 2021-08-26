@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -14,19 +15,19 @@ namespace RosMessageTypes.Moveit
         public override string RosMessageName => k_RosMessageName;
 
         //  This message describes the trajectory of a tracked frame in task-space
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  The name of the Cartesian frame being tracked with respect to the base frame provided in header.frame_id
         public string tracked_frame;
         public CartesianTrajectoryPointMsg[] points;
 
         public CartesianTrajectoryMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.tracked_frame = "";
             this.points = new CartesianTrajectoryPointMsg[0];
         }
 
-        public CartesianTrajectoryMsg(Std.HeaderMsg header, string tracked_frame, CartesianTrajectoryPointMsg[] points)
+        public CartesianTrajectoryMsg(HeaderMsg header, string tracked_frame, CartesianTrajectoryPointMsg[] points)
         {
             this.header = header;
             this.tracked_frame = tracked_frame;
@@ -37,7 +38,7 @@ namespace RosMessageTypes.Moveit
 
         private CartesianTrajectoryMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             deserializer.Read(out this.tracked_frame);
             deserializer.Read(out this.points, CartesianTrajectoryPointMsg.Deserialize, deserializer.ReadLength());
         }

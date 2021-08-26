@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.BuiltinInterfaces;
 
 namespace RosMessageTypes.Moveit
 {
@@ -49,7 +50,7 @@ namespace RosMessageTypes.Moveit
         //  The order of the groups referred to is the same as the order setup in the SRDF
         public Geometry.PoseStampedMsg[] pose_stamped_vector;
         //  Maximum allowed time for IK calculation
-        public BuiltinInterfaces.DurationMsg timeout;
+        public DurationMsg timeout;
 
         public PositionIKRequestMsg()
         {
@@ -61,10 +62,10 @@ namespace RosMessageTypes.Moveit
             this.pose_stamped = new Geometry.PoseStampedMsg();
             this.ik_link_names = new string[0];
             this.pose_stamped_vector = new Geometry.PoseStampedMsg[0];
-            this.timeout = new BuiltinInterfaces.DurationMsg();
+            this.timeout = new DurationMsg();
         }
 
-        public PositionIKRequestMsg(string group_name, RobotStateMsg robot_state, ConstraintsMsg constraints, bool avoid_collisions, string ik_link_name, Geometry.PoseStampedMsg pose_stamped, string[] ik_link_names, Geometry.PoseStampedMsg[] pose_stamped_vector, BuiltinInterfaces.DurationMsg timeout)
+        public PositionIKRequestMsg(string group_name, RobotStateMsg robot_state, ConstraintsMsg constraints, bool avoid_collisions, string ik_link_name, Geometry.PoseStampedMsg pose_stamped, string[] ik_link_names, Geometry.PoseStampedMsg[] pose_stamped_vector, DurationMsg timeout)
         {
             this.group_name = group_name;
             this.robot_state = robot_state;
@@ -89,7 +90,7 @@ namespace RosMessageTypes.Moveit
             this.pose_stamped = Geometry.PoseStampedMsg.Deserialize(deserializer);
             deserializer.Read(out this.ik_link_names, deserializer.ReadLength());
             deserializer.Read(out this.pose_stamped_vector, Geometry.PoseStampedMsg.Deserialize, deserializer.ReadLength());
-            this.timeout = BuiltinInterfaces.DurationMsg.Deserialize(deserializer);
+            this.timeout = DurationMsg.Deserialize(deserializer);
         }
 
         public override void SerializeTo(MessageSerializer serializer)

@@ -4,19 +4,20 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
     [Serializable]
     public class GetPositionFKRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPositionFK";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPositionFK";
         public override string RosMessageName => k_RosMessageName;
 
         //  A service definition for a standard forward kinematics service
         //  The frame_id in the header message is the frame in which 
         //  the forward kinematics poses will be returned
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  A vector of link name for which forward kinematics must be computed
         public string[] fk_link_names;
         //  A robot state consisting of joint names and joint positions to be used for forward kinematics
@@ -24,12 +25,12 @@ namespace RosMessageTypes.Moveit
 
         public GetPositionFKRequest()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.fk_link_names = new string[0];
             this.robot_state = new RobotStateMsg();
         }
 
-        public GetPositionFKRequest(Std.HeaderMsg header, string[] fk_link_names, RobotStateMsg robot_state)
+        public GetPositionFKRequest(HeaderMsg header, string[] fk_link_names, RobotStateMsg robot_state)
         {
             this.header = header;
             this.fk_link_names = fk_link_names;
@@ -40,7 +41,7 @@ namespace RosMessageTypes.Moveit
 
         private GetPositionFKRequest(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             deserializer.Read(out this.fk_link_names, deserializer.ReadLength());
             this.robot_state = RobotStateMsg.Deserialize(deserializer);
         }

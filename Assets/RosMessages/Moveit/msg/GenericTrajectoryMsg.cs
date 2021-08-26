@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -15,18 +16,18 @@ namespace RosMessageTypes.Moveit
 
         //  A generic trajectory message that may either encode a joint- or cartesian-space trajectory, or both
         //  Trajectories encoded in this message are considered semantically equivalent
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         public Trajectory.JointTrajectoryMsg[] joint_trajectory;
         public CartesianTrajectoryMsg[] cartesian_trajectory;
 
         public GenericTrajectoryMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.joint_trajectory = new Trajectory.JointTrajectoryMsg[0];
             this.cartesian_trajectory = new CartesianTrajectoryMsg[0];
         }
 
-        public GenericTrajectoryMsg(Std.HeaderMsg header, Trajectory.JointTrajectoryMsg[] joint_trajectory, CartesianTrajectoryMsg[] cartesian_trajectory)
+        public GenericTrajectoryMsg(HeaderMsg header, Trajectory.JointTrajectoryMsg[] joint_trajectory, CartesianTrajectoryMsg[] cartesian_trajectory)
         {
             this.header = header;
             this.joint_trajectory = joint_trajectory;
@@ -37,7 +38,7 @@ namespace RosMessageTypes.Moveit
 
         private GenericTrajectoryMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             deserializer.Read(out this.joint_trajectory, Trajectory.JointTrajectoryMsg.Deserialize, deserializer.ReadLength());
             deserializer.Read(out this.cartesian_trajectory, CartesianTrajectoryMsg.Deserialize, deserializer.ReadLength());
         }

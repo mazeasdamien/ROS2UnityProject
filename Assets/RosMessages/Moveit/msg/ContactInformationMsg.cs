@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -16,7 +17,7 @@ namespace RosMessageTypes.Moveit
         //  Standard ROS header contains information 
         //  about the frame in which this 
         //  contact is specified
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  Position of the contact point
         public Geometry.PointMsg position;
         //  Normal corresponding to the contact point
@@ -37,7 +38,7 @@ namespace RosMessageTypes.Moveit
 
         public ContactInformationMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.position = new Geometry.PointMsg();
             this.normal = new Geometry.Vector3Msg();
             this.depth = 0.0;
@@ -47,7 +48,7 @@ namespace RosMessageTypes.Moveit
             this.body_type_2 = 0;
         }
 
-        public ContactInformationMsg(Std.HeaderMsg header, Geometry.PointMsg position, Geometry.Vector3Msg normal, double depth, string contact_body_1, uint body_type_1, string contact_body_2, uint body_type_2)
+        public ContactInformationMsg(HeaderMsg header, Geometry.PointMsg position, Geometry.Vector3Msg normal, double depth, string contact_body_1, uint body_type_1, string contact_body_2, uint body_type_2)
         {
             this.header = header;
             this.position = position;
@@ -63,7 +64,7 @@ namespace RosMessageTypes.Moveit
 
         private ContactInformationMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             this.position = Geometry.PointMsg.Deserialize(deserializer);
             this.normal = Geometry.Vector3Msg.Deserialize(deserializer);
             deserializer.Read(out this.depth);

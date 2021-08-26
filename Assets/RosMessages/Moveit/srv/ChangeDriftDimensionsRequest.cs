@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ChangeDriftDimensionsRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ChangeDriftDimensions";
+        public const string k_RosMessageName = "moveit_msgs-master/ChangeDriftDimensions";
         public override string RosMessageName => k_RosMessageName;
 
         //  For use with moveit_jog_arm Cartesian planner

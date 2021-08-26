@@ -6,7 +6,7 @@ namespace RosMessageTypes.Moveit
 {
     public class MoveGroupSequenceAction : Action<MoveGroupSequenceActionGoal, MoveGroupSequenceActionResult, MoveGroupSequenceActionFeedback, MoveGroupSequenceGoal, MoveGroupSequenceResult, MoveGroupSequenceFeedback>
     {
-        public const string k_RosMessageName = "moveit_msgs/MoveGroupSequenceAction";
+        public const string k_RosMessageName = "moveit_msgs-master/MoveGroupSequenceAction";
         public override string RosMessageName => k_RosMessageName;
 
 

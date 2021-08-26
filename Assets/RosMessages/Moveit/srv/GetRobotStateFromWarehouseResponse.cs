@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetRobotStateFromWarehouseResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetRobotStateFromWarehouse";
+        public const string k_RosMessageName = "moveit_msgs-master/GetRobotStateFromWarehouse";
         public override string RosMessageName => k_RosMessageName;
 
         public RobotStateMsg state;

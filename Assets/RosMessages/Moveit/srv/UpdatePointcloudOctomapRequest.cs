@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class UpdatePointcloudOctomapRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/UpdatePointcloudOctomap";
+        public const string k_RosMessageName = "moveit_msgs-master/UpdatePointcloudOctomap";
         public override string RosMessageName => k_RosMessageName;
 
         public Sensor.PointCloud2Msg cloud;

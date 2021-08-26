@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.BuiltinInterfaces;
 
 namespace RosMessageTypes.Moveit
 {
@@ -16,15 +17,15 @@ namespace RosMessageTypes.Moveit
         //  The definition of a cartesian point in a trajectory. Defines the cartesian state of the point and it's time,
         //  following the pattern of the JointTrajectory message
         public CartesianPointMsg point;
-        public BuiltinInterfaces.DurationMsg time_from_start;
+        public DurationMsg time_from_start;
 
         public CartesianTrajectoryPointMsg()
         {
             this.point = new CartesianPointMsg();
-            this.time_from_start = new BuiltinInterfaces.DurationMsg();
+            this.time_from_start = new DurationMsg();
         }
 
-        public CartesianTrajectoryPointMsg(CartesianPointMsg point, BuiltinInterfaces.DurationMsg time_from_start)
+        public CartesianTrajectoryPointMsg(CartesianPointMsg point, DurationMsg time_from_start)
         {
             this.point = point;
             this.time_from_start = time_from_start;
@@ -35,7 +36,7 @@ namespace RosMessageTypes.Moveit
         private CartesianTrajectoryPointMsg(MessageDeserializer deserializer)
         {
             this.point = CartesianPointMsg.Deserialize(deserializer);
-            this.time_from_start = BuiltinInterfaces.DurationMsg.Deserialize(deserializer);
+            this.time_from_start = DurationMsg.Deserialize(deserializer);
         }
 
         public override void SerializeTo(MessageSerializer serializer)

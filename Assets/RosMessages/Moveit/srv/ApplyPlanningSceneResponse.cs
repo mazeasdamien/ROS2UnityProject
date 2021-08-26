@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ApplyPlanningSceneResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ApplyPlanningScene";
+        public const string k_RosMessageName = "moveit_msgs-master/ApplyPlanningScene";
         public override string RosMessageName => k_RosMessageName;
 
         public bool success;

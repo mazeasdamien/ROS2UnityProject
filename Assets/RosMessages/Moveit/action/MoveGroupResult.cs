@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class MoveGroupResult : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/MoveGroup";
+        public const string k_RosMessageName = "moveit_msgs-master/MoveGroup";
         public override string RosMessageName => k_RosMessageName;
 
         //  An error code reflecting what went wrong

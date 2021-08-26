@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ExecuteKnownTrajectoryRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ExecuteKnownTrajectory";
+        public const string k_RosMessageName = "moveit_msgs-master/ExecuteKnownTrajectory";
         public override string RosMessageName => k_RosMessageName;
 
         //  This service is deprecated and will go away at some point. For new development use the ExecuteTrajectory action.

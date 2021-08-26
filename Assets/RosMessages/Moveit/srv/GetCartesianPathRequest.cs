@@ -4,17 +4,18 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
     [Serializable]
     public class GetCartesianPathRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetCartesianPath";
+        public const string k_RosMessageName = "moveit_msgs-master/GetCartesianPath";
         public override string RosMessageName => k_RosMessageName;
 
         //  Define the frame for the specified waypoints
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  The start at which to start the Cartesian path
         public RobotStateMsg start_state;
         //  Mandatory name of group to compute the path for
@@ -48,10 +49,17 @@ namespace RosMessageTypes.Moveit
         public bool avoid_collisions;
         //  Specify additional constraints to be met by the Cartesian path
         public ConstraintsMsg path_constraints;
+        //  Maximum cartesian speed for the given end effector.
+        //  If max_cartesian_speed <= 0 the trajectory is not modified.
+        //  WARNING NOT FUNCTIONAL YET.
+        //  REQUIRES https://github.com/ros-planning/moveit/pull/2674
+        public string cartesian_speed_end_effector_link;
+        public double max_cartesian_speed;
+        //  m/s
 
         public GetCartesianPathRequest()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.start_state = new RobotStateMsg();
             this.group_name = "";
             this.link_name = "";
@@ -62,9 +70,11 @@ namespace RosMessageTypes.Moveit
             this.revolute_jump_threshold = 0.0;
             this.avoid_collisions = false;
             this.path_constraints = new ConstraintsMsg();
+            this.cartesian_speed_end_effector_link = "";
+            this.max_cartesian_speed = 0.0;
         }
 
-        public GetCartesianPathRequest(Std.HeaderMsg header, RobotStateMsg start_state, string group_name, string link_name, Geometry.PoseMsg[] waypoints, double max_step, double jump_threshold, double prismatic_jump_threshold, double revolute_jump_threshold, bool avoid_collisions, ConstraintsMsg path_constraints)
+        public GetCartesianPathRequest(HeaderMsg header, RobotStateMsg start_state, string group_name, string link_name, Geometry.PoseMsg[] waypoints, double max_step, double jump_threshold, double prismatic_jump_threshold, double revolute_jump_threshold, bool avoid_collisions, ConstraintsMsg path_constraints, string cartesian_speed_end_effector_link, double max_cartesian_speed)
         {
             this.header = header;
             this.start_state = start_state;
@@ -77,13 +87,15 @@ namespace RosMessageTypes.Moveit
             this.revolute_jump_threshold = revolute_jump_threshold;
             this.avoid_collisions = avoid_collisions;
             this.path_constraints = path_constraints;
+            this.cartesian_speed_end_effector_link = cartesian_speed_end_effector_link;
+            this.max_cartesian_speed = max_cartesian_speed;
         }
 
         public static GetCartesianPathRequest Deserialize(MessageDeserializer deserializer) => new GetCartesianPathRequest(deserializer);
 
         private GetCartesianPathRequest(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             this.start_state = RobotStateMsg.Deserialize(deserializer);
             deserializer.Read(out this.group_name);
             deserializer.Read(out this.link_name);
@@ -94,6 +106,8 @@ namespace RosMessageTypes.Moveit
             deserializer.Read(out this.revolute_jump_threshold);
             deserializer.Read(out this.avoid_collisions);
             this.path_constraints = ConstraintsMsg.Deserialize(deserializer);
+            deserializer.Read(out this.cartesian_speed_end_effector_link);
+            deserializer.Read(out this.max_cartesian_speed);
         }
 
         public override void SerializeTo(MessageSerializer serializer)
@@ -110,6 +124,8 @@ namespace RosMessageTypes.Moveit
             serializer.Write(this.revolute_jump_threshold);
             serializer.Write(this.avoid_collisions);
             serializer.Write(this.path_constraints);
+            serializer.Write(this.cartesian_speed_end_effector_link);
+            serializer.Write(this.max_cartesian_speed);
         }
 
         public override string ToString()
@@ -125,7 +141,9 @@ namespace RosMessageTypes.Moveit
             "\nprismatic_jump_threshold: " + prismatic_jump_threshold.ToString() +
             "\nrevolute_jump_threshold: " + revolute_jump_threshold.ToString() +
             "\navoid_collisions: " + avoid_collisions.ToString() +
-            "\npath_constraints: " + path_constraints.ToString();
+            "\npath_constraints: " + path_constraints.ToString() +
+            "\ncartesian_speed_end_effector_link: " + cartesian_speed_end_effector_link.ToString() +
+            "\nmax_cartesian_speed: " + max_cartesian_speed.ToString();
         }
 
 #if UNITY_EDITOR

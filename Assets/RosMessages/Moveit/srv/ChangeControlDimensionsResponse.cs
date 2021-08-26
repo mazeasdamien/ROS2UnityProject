@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ChangeControlDimensionsResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ChangeControlDimensions";
+        public const string k_RosMessageName = "moveit_msgs-master/ChangeControlDimensions";
         public override string RosMessageName => k_RosMessageName;
 
         public bool success;

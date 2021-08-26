@@ -6,7 +6,7 @@ namespace RosMessageTypes.Moveit
 {
     public class ExecuteTrajectoryAction : Action<ExecuteTrajectoryActionGoal, ExecuteTrajectoryActionResult, ExecuteTrajectoryActionFeedback, ExecuteTrajectoryGoal, ExecuteTrajectoryResult, ExecuteTrajectoryFeedback>
     {
-        public const string k_RosMessageName = "moveit_msgs/ExecuteTrajectoryAction";
+        public const string k_RosMessageName = "moveit_msgs-master/ExecuteTrajectoryAction";
         public override string RosMessageName => k_RosMessageName;
 
 

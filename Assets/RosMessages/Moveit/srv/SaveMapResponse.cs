@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class SaveMapResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/SaveMap";
+        public const string k_RosMessageName = "moveit_msgs-master/SaveMap";
         public override string RosMessageName => k_RosMessageName;
 
         public bool success;

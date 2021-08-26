@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class MoveGroupGoal : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/MoveGroup";
+        public const string k_RosMessageName = "moveit_msgs-master/MoveGroup";
         public override string RosMessageName => k_RosMessageName;
 
         //  Motion planning request to pass to planner

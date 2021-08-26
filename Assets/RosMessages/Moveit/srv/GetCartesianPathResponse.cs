@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetCartesianPathResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetCartesianPath";
+        public const string k_RosMessageName = "moveit_msgs-master/GetCartesianPath";
         public override string RosMessageName => k_RosMessageName;
 
         //  The state at which the computed path starts

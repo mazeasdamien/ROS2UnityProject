@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -14,7 +15,7 @@ namespace RosMessageTypes.Moveit
         public override string RosMessageName => k_RosMessageName;
 
         //  This message contains the definition of a position constraint.
-        public Std.HeaderMsg header;
+        public HeaderMsg header;
         //  The robot link this constraint refers to
         public string link_name;
         //  The offset (in the link frame) for the target point on the link we are planning for
@@ -26,14 +27,14 @@ namespace RosMessageTypes.Moveit
 
         public PositionConstraintMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.link_name = "";
             this.target_point_offset = new Geometry.Vector3Msg();
             this.constraint_region = new BoundingVolumeMsg();
             this.weight = 0.0;
         }
 
-        public PositionConstraintMsg(Std.HeaderMsg header, string link_name, Geometry.Vector3Msg target_point_offset, BoundingVolumeMsg constraint_region, double weight)
+        public PositionConstraintMsg(HeaderMsg header, string link_name, Geometry.Vector3Msg target_point_offset, BoundingVolumeMsg constraint_region, double weight)
         {
             this.header = header;
             this.link_name = link_name;
@@ -46,7 +47,7 @@ namespace RosMessageTypes.Moveit
 
         private PositionConstraintMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             deserializer.Read(out this.link_name);
             this.target_point_offset = Geometry.Vector3Msg.Deserialize(deserializer);
             this.constraint_region = BoundingVolumeMsg.Deserialize(deserializer);

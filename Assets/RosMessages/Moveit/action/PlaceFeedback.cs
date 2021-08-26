@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class PlaceFeedback : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/Place";
+        public const string k_RosMessageName = "moveit_msgs-master/Place";
         public override string RosMessageName => k_RosMessageName;
 
         //  The internal state that the place action currently is in

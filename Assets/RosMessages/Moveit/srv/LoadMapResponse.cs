@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class LoadMapResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/LoadMap";
+        public const string k_RosMessageName = "moveit_msgs-master/LoadMap";
         public override string RosMessageName => k_RosMessageName;
 
         public bool success;

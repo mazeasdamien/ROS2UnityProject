@@ -4,6 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Robotics.ROSTCPConnector.MessageGeneration;
+using RosMessageTypes.Std;
 
 namespace RosMessageTypes.Moveit
 {
@@ -13,13 +14,8 @@ namespace RosMessageTypes.Moveit
         public const string k_RosMessageName = "moveit_msgs/CollisionObject";
         public override string RosMessageName => k_RosMessageName;
 
-        //  a header, used for interpreting the poses
-        public Std.HeaderMsg header;
-        //  DISCLAIMER: This field is not in use yet and all other poses
-        //  are still interpreted in the header frame.
-        //  https://github.com/ros-planning/moveit/pull/2037
-        //  implements the actual logic for this field.
-        //  ---
+        //  A header, used for interpreting the poses
+        public HeaderMsg header;
         //  The object's pose relative to the header frame.
         //  The shapes and subframe poses are defined relative to this pose.
         public Geometry.PoseMsg pose;
@@ -59,7 +55,7 @@ namespace RosMessageTypes.Moveit
 
         public CollisionObjectMsg()
         {
-            this.header = new Std.HeaderMsg();
+            this.header = new HeaderMsg();
             this.pose = new Geometry.PoseMsg();
             this.id = "";
             this.type = new ObjectRecognition.ObjectTypeMsg();
@@ -74,7 +70,7 @@ namespace RosMessageTypes.Moveit
             this.operation = 0;
         }
 
-        public CollisionObjectMsg(Std.HeaderMsg header, Geometry.PoseMsg pose, string id, ObjectRecognition.ObjectTypeMsg type, Shape.SolidPrimitiveMsg[] primitives, Geometry.PoseMsg[] primitive_poses, Shape.MeshMsg[] meshes, Geometry.PoseMsg[] mesh_poses, Shape.PlaneMsg[] planes, Geometry.PoseMsg[] plane_poses, string[] subframe_names, Geometry.PoseMsg[] subframe_poses, sbyte operation)
+        public CollisionObjectMsg(HeaderMsg header, Geometry.PoseMsg pose, string id, ObjectRecognition.ObjectTypeMsg type, Shape.SolidPrimitiveMsg[] primitives, Geometry.PoseMsg[] primitive_poses, Shape.MeshMsg[] meshes, Geometry.PoseMsg[] mesh_poses, Shape.PlaneMsg[] planes, Geometry.PoseMsg[] plane_poses, string[] subframe_names, Geometry.PoseMsg[] subframe_poses, sbyte operation)
         {
             this.header = header;
             this.pose = pose;
@@ -95,7 +91,7 @@ namespace RosMessageTypes.Moveit
 
         private CollisionObjectMsg(MessageDeserializer deserializer)
         {
-            this.header = Std.HeaderMsg.Deserialize(deserializer);
+            this.header = HeaderMsg.Deserialize(deserializer);
             this.pose = Geometry.PoseMsg.Deserialize(deserializer);
             deserializer.Read(out this.id);
             this.type = ObjectRecognition.ObjectTypeMsg.Deserialize(deserializer);

@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class ExecuteKnownTrajectoryResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/ExecuteKnownTrajectory";
+        public const string k_RosMessageName = "moveit_msgs-master/ExecuteKnownTrajectory";
         public override string RosMessageName => k_RosMessageName;
 
         //  Error code - encodes the overall reason for failure

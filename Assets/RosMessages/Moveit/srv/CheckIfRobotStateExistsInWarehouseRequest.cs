@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class CheckIfRobotStateExistsInWarehouseRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/CheckIfRobotStateExistsInWarehouse";
+        public const string k_RosMessageName = "moveit_msgs-master/CheckIfRobotStateExistsInWarehouse";
         public override string RosMessageName => k_RosMessageName;
 
         public string name;

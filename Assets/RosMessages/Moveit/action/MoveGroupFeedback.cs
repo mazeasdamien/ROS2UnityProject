@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class MoveGroupFeedback : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/MoveGroup";
+        public const string k_RosMessageName = "moveit_msgs-master/MoveGroup";
         public override string RosMessageName => k_RosMessageName;
 
         //  The internal state that the move group action currently is in

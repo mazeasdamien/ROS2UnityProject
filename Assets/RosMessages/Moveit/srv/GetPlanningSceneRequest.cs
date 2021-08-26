@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetPlanningSceneRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPlanningScene";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPlanningScene";
         public override string RosMessageName => k_RosMessageName;
 
         //  Get parts of the planning scene that are of interest

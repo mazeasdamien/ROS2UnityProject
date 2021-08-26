@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetPositionFKResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPositionFK";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPositionFK";
         public override string RosMessageName => k_RosMessageName;
 
         //  The resultant vector of PoseStamped messages that contains the (stamped) poses of the requested links

@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class DeleteRobotStateFromWarehouseRequest : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/DeleteRobotStateFromWarehouse";
+        public const string k_RosMessageName = "moveit_msgs-master/DeleteRobotStateFromWarehouse";
         public override string RosMessageName => k_RosMessageName;
 
         public string name;

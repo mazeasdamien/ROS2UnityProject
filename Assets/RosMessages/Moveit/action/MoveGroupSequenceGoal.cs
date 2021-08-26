@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class MoveGroupSequenceGoal : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/MoveGroupSequence";
+        public const string k_RosMessageName = "moveit_msgs-master/MoveGroupSequence";
         public override string RosMessageName => k_RosMessageName;
 
         //  A list of motion commands - one for each section of the sequence

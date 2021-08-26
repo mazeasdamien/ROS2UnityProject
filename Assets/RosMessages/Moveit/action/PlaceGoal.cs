@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class PlaceGoal : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/Place";
+        public const string k_RosMessageName = "moveit_msgs-master/Place";
         public override string RosMessageName => k_RosMessageName;
 
         //  An action for placing an object

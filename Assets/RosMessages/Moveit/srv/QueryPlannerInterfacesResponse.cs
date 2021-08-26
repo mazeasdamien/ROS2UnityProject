@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class QueryPlannerInterfacesResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/QueryPlannerInterfaces";
+        public const string k_RosMessageName = "moveit_msgs-master/QueryPlannerInterfaces";
         public override string RosMessageName => k_RosMessageName;
 
         //  The planning instances that could be used in the benchmark

@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetPlannerParamsResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetPlannerParams";
+        public const string k_RosMessageName = "moveit_msgs-master/GetPlannerParams";
         public override string RosMessageName => k_RosMessageName;
 
         //  parameters as key-value pairs

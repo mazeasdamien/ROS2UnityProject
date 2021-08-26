@@ -10,7 +10,7 @@ namespace RosMessageTypes.Moveit
     [Serializable]
     public class GetMotionPlanResponse : Message
     {
-        public const string k_RosMessageName = "moveit_msgs/GetMotionPlan";
+        public const string k_RosMessageName = "moveit_msgs-master/GetMotionPlan";
         public override string RosMessageName => k_RosMessageName;
 
         public MotionPlanResponseMsg motion_plan_response;
