@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="fanucgripper_description">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00013126 -0.0026776 0.1402"
+        rpy="0 0 0" />
+      <mass
+        value="23.654" />
+      <inertia
+        ixx="0.33654"
+        ixy="-0.0004327"
+        ixz="0.00021836"
+        iyy="0.32988"
+        iyz="-0.0033897"
+        izz="0.30696" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_1">
+    <inertial>
+      <origin
+        xyz="0.013186 -0.066637 0.15162"
+        rpy="0 0 0" />
+      <mass
+        value="21.047" />
+      <inertia
+        ixx="0.35163"
+        ixy="-0.0080169"
+        ixz="-0.031511"
+        iyy="0.41047"
+        iyz="0.072171"
+        izz="0.43609" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J0"
+    type="revolute">
+    <origin
+      xyz="0 0 0.3076"
+      rpy="0 0.0174532925199439 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="link_1" />
+    <axis
+      xyz="-0.0174524064372841 0 0.999847695156261" />
+    <limit
+      lower="-2.9671"
+      upper="2.9671"
+      effort="0"
+      velocity="3.4034" />
+  </joint>
+  <link
+    name="link_2">
+    <inertial>
+      <origin
+        xyz="-0.10746 4.7849E-05 0.39459"
+        rpy="0 0 0" />
+      <mass
+        value="14.029" />
+      <inertia
+        ixx="0.93318"
+        ixy="-7.4341E-05"
+        ixz="-0.0041433"
+        iyy="0.92334"
+        iyz="7.807E-05"
+        izz="0.053319" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="revolute">
+    <origin
+      xyz="-0.0657847115946149 -0.149999889097418 0.216284916235913"
+      rpy="0 -0.0174532925199462 0" />
+    <parent
+      link="link_1" />
+    <child
+      link="link_2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.7453"
+      upper="2.7925"
+      effort="0"
+      velocity="3.0543" />
+  </joint>
+  <link
+    name="link_3">
+    <inertial>
+      <origin
+        xyz="0.043754 -0.10039 0.1067"
+        rpy="0 0 0" />
+      <mass
+        value="13.287" />
+      <inertia
+        ixx="0.25299"
+        ixy="-0.01565"
+        ixz="-0.0090526"
+        iyy="0.30219"
+        iyz="0.064974"
+        izz="0.23865" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="revolute">
+    <origin
+      xyz="0 0 0.789999999999897"
+      rpy="0 0 0" />
+    <parent
+      link="link_2" />
+    <child
+      link="link_3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.2289"
+      upper="4.7668"
+      effort="0"
+      velocity="3.1416" />
+  </joint>
+  <link
+    name="link_4">
+    <inertial>
+      <origin
+        xyz="-0.05655 -0.29927 -3.6145E-05"
+        rpy="0 0 0" />
+      <mass
+        value="7.7538" />
+      <inertia
+        ixx="0.2559"
+        ixy="-0.028523"
+        ixz="-1.2993E-05"
+        iyy="0.024919"
+        iyz="-5.9523E-05"
+        izz="0.25507" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="revolute">
+    <origin
+      xyz="0.062 -0.223291899477582 0.25"
+      rpy="0 0 0" />
+    <parent
+      link="link_3" />
+    <child
+      link="link_4" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.4907"
+      upper="3.4907"
+      effort="0"
+      velocity="6.2832" />
+  </joint>
+  <link
+    name="link_5">
+    <inertial>
+      <origin
+        xyz="0.034529 -0.030527 8.2322E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.78107" />
+      <inertia
+        ixx="0.0020734"
+        ixy="0.00048263"
+        ixz="-6.448E-10"
+        iyy="0.0017182"
+        iyz="7.078E-10"
+        izz="0.0018545" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J4"
+    type="revolute">
+    <origin
+      xyz="-0.0560000000001478 -0.611708100522418 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_4" />
+    <child
+      link="link_5" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2.4435"
+      upper="2.4435"
+      effort="0"
+      velocity="6.2832" />
+  </joint>
+  <link
+    name="end_effector">
+    <inertial>
+      <origin
+        xyz="-2.1336E-06 -0.036896 -1.0843E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.050357" />
+      <inertia
+        ixx="3.5325E-05"
+        ixy="-2.7727E-09"
+        ixz="2.9529E-09"
+        iyy="3.8367E-05"
+        iyz="-1.4091E-08"
+        izz="3.5339E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/end_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/end_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="end_effector_joint"
+    type="revolute">
+    <origin
+      xyz="0.0560000000001477 -0.0354999999999954 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_5" />
+    <child
+      link="end_effector" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-4.7124"
+      upper="4.7124"
+      effort="0"
+      velocity="9.5993" />
+  </joint>
+  <link
+    name="grip1">
+    <inertial>
+      <origin
+        xyz="0.021365 1.0487 -0.82049"
+        rpy="0 0 0" />
+      <mass
+        value="80.653" />
+      <inertia
+        ixx="28.366"
+        ixy="-0.31844"
+        ixz="1.067"
+        iyy="25.025"
+        iyz="7.6238"
+        izz="5.2363" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/grip1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/grip1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="grip_J0"
+    type="prismatic">
+    <origin
+      xyz="-0.055322 -0.1895 -0.021884"
+      rpy="0 0 0" />
+    <parent
+      link="end_effector" />
+    <child
+      link="grip1" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0.055"
+      effort="0"
+      velocity="0.2" />
+  </joint>
+  <link
+    name="grip2">
+    <inertial>
+      <origin
+        xyz="-0.089007 1.0487 -0.84275"
+        rpy="0 0 0" />
+      <mass
+        value="80.653" />
+      <inertia
+        ixx="28.366"
+        ixy="-0.31844"
+        ixz="1.067"
+        iyy="25.025"
+        iyz="7.6238"
+        izz="5.2363" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/grip2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fanucgripper_description/meshes/grip2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="grip_J1"
+    type="prismatic">
+    <origin
+      xyz="0.05505 -0.1895 0.00037307"
+      rpy="0 0 0" />
+    <parent
+      link="end_effector" />
+    <child
+      link="grip2" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0.055"
+      effort="0"
+      velocity="0.2" />
+  </joint>
+</robot>
